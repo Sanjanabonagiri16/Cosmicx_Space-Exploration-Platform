@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import DarkModeToggle from "./DarkModeToggle";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -26,12 +27,15 @@ const Navbar = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:block">
+          <div className="hidden md:flex md:items-center">
             <div className="ml-10 flex items-baseline space-x-4">
               <NavLink href="#missions">Missions</NavLink>
               <NavLink href="#planets">Planets</NavLink>
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
+            </div>
+            <div className="ml-6">
+              <DarkModeToggle />
             </div>
           </div>
 
@@ -55,6 +59,9 @@ const Navbar = () => {
             <MobileNavLink href="#planets">Planets</MobileNavLink>
             <MobileNavLink href="#about">About</MobileNavLink>
             <MobileNavLink href="#contact">Contact</MobileNavLink>
+            <div className="px-3 py-2">
+              <DarkModeToggle />
+            </div>
           </div>
         </div>
       )}
@@ -65,7 +72,7 @@ const Navbar = () => {
 const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-gray-300 hover:text-space-pink px-3 py-2 rounded-md text-sm font-medium transition-colors"
+    className="text-gray-300 hover:text-space-pink px-3 py-2 rounded-md text-sm font-medium transition-colors dark:text-gray-400 dark:hover:text-space-pink"
   >
     {children}
   </a>
@@ -74,7 +81,7 @@ const NavLink = ({ href, children }: { href: string; children: React.ReactNode }
 const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
   <a
     href={href}
-    className="text-gray-300 hover:text-space-pink block px-3 py-2 rounded-md text-base font-medium"
+    className="text-gray-300 hover:text-space-pink block px-3 py-2 rounded-md text-base font-medium dark:text-gray-400 dark:hover:text-space-pink"
   >
     {children}
   </a>

@@ -34,12 +34,13 @@ const Hero = () => {
 
     // Animation loop
     const animate = () => {
-      ctx.fillStyle = "#0A0A0A";
+      const isDark = document.documentElement.classList.contains("dark");
+      ctx.fillStyle = isDark ? "#000000" : "#0A0A0A";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Draw and update stars
       stars.forEach((star) => {
-        ctx.fillStyle = "#ffffff";
+        ctx.fillStyle = isDark ? "#6B46C1" : "#ffffff";
         ctx.beginPath();
         ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
         ctx.fill();
@@ -72,13 +73,13 @@ const Hero = () => {
       />
       <div className="relative z-10 h-full flex items-center justify-center text-center px-4">
         <div className="max-w-3xl">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-float">
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 animate-float dark:text-space-pink">
             Exploring Beyond the Stars
           </h1>
-          <p className="text-space-gray text-lg md:text-xl mb-8">
+          <p className="text-space-gray text-lg md:text-xl mb-8 dark:text-gray-300">
             Join us on a journey to discover the mysteries of the cosmos
           </p>
-          <button className="bg-space-purple hover:bg-space-pink text-white font-bold py-3 px-8 rounded-full transition-colors duration-300">
+          <button className="bg-space-purple hover:bg-space-pink text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 dark:bg-space-pink dark:hover:bg-space-purple">
             Start Your Journey
           </button>
         </div>
