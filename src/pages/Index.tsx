@@ -7,12 +7,15 @@ import AIChatbot from "@/components/AIChatbot";
 import SpaceWeather from "@/components/SpaceWeather";
 import AstroNews from "@/components/AstroNews";
 import SpaceTicketBooking from "@/components/SpaceTicketBooking";
+import LiveDashboard from "@/components/LiveDashboard";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-space-black text-white">
       <Navbar />
       <Hero />
+      <MissionTimeline />
+      <LiveDashboard />
       <div className="container mx-auto px-4 py-8 space-y-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <AIChatbot />
@@ -25,7 +28,6 @@ const Index = () => {
         <RocketExplorer />
         <PlanetExplorer />
       </div>
-      <MissionTimeline />
     </main>
   );
 };
