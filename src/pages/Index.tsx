@@ -3,13 +3,25 @@ import Hero from "@/components/Hero";
 import MissionTimeline from "@/components/MissionTimeline";
 import RocketExplorer from "@/components/RocketExplorer";
 import PlanetExplorer from "@/components/PlanetExplorer";
+import AIChatbot from "@/components/AIChatbot";
+import SpaceWeather from "@/components/SpaceWeather";
+import AstroNews from "@/components/AstroNews";
+import SpaceTicketBooking from "@/components/SpaceTicketBooking";
 
 const Index = () => {
   return (
     <main className="min-h-screen bg-space-black text-white">
       <Navbar />
       <Hero />
-      <div className="container mx-auto px-4 py-8">
+      <div className="container mx-auto px-4 py-8 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <AIChatbot />
+          <SpaceWeather />
+        </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <AstroNews />
+          <SpaceTicketBooking />
+        </div>
         <RocketExplorer />
         <PlanetExplorer />
       </div>
