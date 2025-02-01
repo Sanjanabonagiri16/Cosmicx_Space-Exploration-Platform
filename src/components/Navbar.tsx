@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 import DarkModeToggle from "./DarkModeToggle";
-import ThemeSelector from "./ThemeSelector";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,26 +18,24 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-space-black/90 backdrop-blur-md" : "bg-transparent"
+        isScrolled ? "bg-black/90 backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex-shrink-0">
-            <span className="text-space-pink font-bold text-xl">CosmicX</span>
+            <Link to="/" className="text-blue-500 font-bold text-xl">CosmicX</Link>
           </div>
           
           {/* Desktop Menu */}
           <div className="hidden md:flex md:items-center">
             <div className="ml-10 flex items-baseline space-x-4">
-              <NavLink href="#missions">Missions</NavLink>
-              <NavLink href="#planets">Planets</NavLink>
-              <NavLink href="#about">About</NavLink>
-              <NavLink href="#contact">Contact</NavLink>
+              <NavLink to="/planets">Planets</NavLink>
+              <NavLink to="/about">About</NavLink>
+              <NavLink to="/contact">Contact</NavLink>
             </div>
             <div className="ml-6 flex items-center space-x-4">
               <DarkModeToggle />
-              <ThemeSelector />
             </div>
           </div>
 
@@ -55,15 +53,13 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-space-black/95 backdrop-blur-md">
+        <div className="md:hidden bg-black/95 backdrop-blur-md">
           <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            <MobileNavLink href="#missions">Missions</MobileNavLink>
-            <MobileNavLink href="#planets">Planets</MobileNavLink>
-            <MobileNavLink href="#about">About</MobileNavLink>
-            <MobileNavLink href="#contact">Contact</MobileNavLink>
+            <MobileNavLink to="/planets">Planets</MobileNavLink>
+            <MobileNavLink to="/about">About</MobileNavLink>
+            <MobileNavLink to="/contact">Contact</MobileNavLink>
             <div className="px-3 py-2 flex items-center space-x-4">
               <DarkModeToggle />
-              <ThemeSelector />
             </div>
           </div>
         </div>
@@ -72,22 +68,22 @@ const Navbar = () => {
   );
 };
 
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    className="text-gray-300 hover:text-space-pink px-3 py-2 rounded-md text-sm font-medium transition-colors dark:text-gray-400 dark:hover:text-space-pink"
+const NavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+  <Link
+    to={to}
+    className="text-gray-300 hover:text-blue-500 px-3 py-2 rounded-md text-sm font-medium transition-colors"
   >
     {children}
-  </a>
+  </Link>
 );
 
-const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a
-    href={href}
-    className="text-gray-300 hover:text-space-pink block px-3 py-2 rounded-md text-base font-medium dark:text-gray-400 dark:hover:text-space-pink"
+const MobileNavLink = ({ to, children }: { to: string; children: React.ReactNode }) => (
+  <Link
+    to={to}
+    className="text-gray-300 hover:text-blue-500 block px-3 py-2 rounded-md text-base font-medium"
   >
     {children}
-  </a>
+  </Link>
 );
 
 export default Navbar;
