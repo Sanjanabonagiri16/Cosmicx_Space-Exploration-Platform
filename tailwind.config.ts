@@ -45,11 +45,22 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        space: {
-          black: "#0A0A0A",
-          purple: "#6B46C1",
-          pink: "#F687B3",
-          gray: "#E2E8F0",
+        themes: {
+          galactic: {
+            primary: "#0EA5E9",
+            secondary: "#33C3F0",
+            accent: "#60A5FA",
+          },
+          nebula: {
+            primary: "#9b87f5",
+            secondary: "#7E69AB",
+            accent: "#D6BCFA",
+          },
+          martian: {
+            primary: "#ea384c",
+            secondary: "#ef4444",
+            accent: "#f87171",
+          },
         },
       },
       animation: {
@@ -57,6 +68,7 @@ export default {
         "twinkle": "twinkle 4s ease-in-out infinite",
         "glow": "glow 2s ease-in-out infinite",
         "parallax": "parallax 20s linear infinite",
+        "orbit": "orbit 20s linear infinite",
       },
       keyframes: {
         float: {
@@ -77,13 +89,14 @@ export default {
             transform: "scale(1.02)"
           },
         },
+        orbit: {
+          "0%": { transform: "rotate(0deg) translateX(150px) rotate(0deg)" },
+          "100%": { transform: "rotate(360deg) translateX(150px) rotate(-360deg)" },
+        },
         parallax: {
           "0%": { transform: "translateX(100%)" },
           "100%": { transform: "translateX(-100%)" },
         },
-      },
-      cursor: {
-        cosmic: "url('/cosmic-cursor.svg'), auto",
       },
     },
   },

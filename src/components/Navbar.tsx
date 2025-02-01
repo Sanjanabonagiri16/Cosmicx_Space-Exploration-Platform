@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import DarkModeToggle from "./DarkModeToggle";
+import ThemeSelector from "./ThemeSelector";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,8 +35,9 @@ const Navbar = () => {
               <NavLink href="#about">About</NavLink>
               <NavLink href="#contact">Contact</NavLink>
             </div>
-            <div className="ml-6">
+            <div className="ml-6 flex items-center space-x-4">
               <DarkModeToggle />
+              <ThemeSelector />
             </div>
           </div>
 
@@ -59,8 +61,9 @@ const Navbar = () => {
             <MobileNavLink href="#planets">Planets</MobileNavLink>
             <MobileNavLink href="#about">About</MobileNavLink>
             <MobileNavLink href="#contact">Contact</MobileNavLink>
-            <div className="px-3 py-2">
+            <div className="px-3 py-2 flex items-center space-x-4">
               <DarkModeToggle />
+              <ThemeSelector />
             </div>
           </div>
         </div>
