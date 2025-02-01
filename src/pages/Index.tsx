@@ -8,12 +8,14 @@ import SpaceWeather from "@/components/SpaceWeather";
 import AstroNews from "@/components/AstroNews";
 import SpaceTicketBooking from "@/components/SpaceTicketBooking";
 import LiveDashboard from "@/components/LiveDashboard";
+import SpaceLearningCenter from "@/components/SpaceLearningCenter";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-space-black text-white">
+    <main className="min-h-screen bg-themes-galactic-background dark:bg-themes-nebula-background text-themes-galactic-text dark:text-themes-nebula-text">
       <Navbar />
       <Hero />
+      <SpaceLearningCenter />
       <MissionTimeline />
       <LiveDashboard />
       <div className="container mx-auto px-4 py-8 space-y-8">

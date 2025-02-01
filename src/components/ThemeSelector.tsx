@@ -12,13 +12,18 @@ type Theme = 'galactic' | 'nebula' | 'martian';
 
 const ThemeSelector = () => {
   const [theme, setTheme] = useState<Theme>(() => {
-    const savedTheme = localStorage.getItem('theme') as Theme;
+    const savedTheme = localStorage.getItem('app-theme') as Theme;
     return savedTheme || 'galactic';
   });
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
+    localStorage.setItem('app-theme', theme);
+    
+    // Update body background and text colors
+    const root = document.documentElement;
+    root.style.setProperty('--theme-background', `var(--${theme}-background)`);
+    root.style.setProperty('--theme-text', `var(--${theme}-text)`);
   }, [theme]);
 
   const themes = {

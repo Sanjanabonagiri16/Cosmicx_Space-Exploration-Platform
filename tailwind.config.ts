@@ -50,18 +50,24 @@ export default {
             primary: "#0EA5E9",
             secondary: "#33C3F0",
             accent: "#60A5FA",
+            background: "#0F172A",
+            text: "#E2E8F0"
           },
           nebula: {
             primary: "#9b87f5",
             secondary: "#7E69AB",
             accent: "#D6BCFA",
+            background: "#1A1B3B",
+            text: "#E9D8FD"
           },
           martian: {
             primary: "#ea384c",
             secondary: "#ef4444",
             accent: "#f87171",
-          },
-        },
+            background: "#451A1A",
+            text: "#FEE2E2"
+          }
+        }
       },
       animation: {
         "float": "float 6s ease-in-out infinite",
