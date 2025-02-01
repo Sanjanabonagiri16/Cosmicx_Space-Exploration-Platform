@@ -55,6 +55,8 @@ export default {
       animation: {
         "float": "float 6s ease-in-out infinite",
         "twinkle": "twinkle 4s ease-in-out infinite",
+        "glow": "glow 2s ease-in-out infinite",
+        "parallax": "parallax 20s linear infinite",
       },
       keyframes: {
         float: {
@@ -65,6 +67,23 @@ export default {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.3" },
         },
+        glow: {
+          "0%, 100%": { 
+            boxShadow: "0 0 20px rgba(107, 70, 193, 0.5)",
+            transform: "scale(1)"
+          },
+          "50%": { 
+            boxShadow: "0 0 40px rgba(107, 70, 193, 0.8)",
+            transform: "scale(1.02)"
+          },
+        },
+        parallax: {
+          "0%": { transform: "translateX(100%)" },
+          "100%": { transform: "translateX(-100%)" },
+        },
+      },
+      cursor: {
+        cosmic: "url('/cosmic-cursor.svg'), auto",
       },
     },
   },
