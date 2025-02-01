@@ -103,11 +103,13 @@ const Hero = () => {
 
   return (
     <div className="relative h-screen overflow-hidden cursor-cosmic">
-      <style jsx global>{`
-        .cursor-cosmic {
-          cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='8' fill='%236B46C1' fill-opacity='0.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23F687B3'/%3E%3C/svg%3E"), auto;
-        }
-      `}</style>
+      <style>
+        {`
+          .cursor-cosmic {
+            cursor: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='8' fill='%236B46C1' fill-opacity='0.5'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%23F687B3'/%3E%3C/svg%3E"), auto;
+          }
+        `}
+      </style>
       
       <video
         ref={videoRef}

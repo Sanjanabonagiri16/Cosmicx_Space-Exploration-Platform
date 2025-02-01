@@ -1,7 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MissionTimeline from "@/components/MissionTimeline";
-import RocketExplorer from "@/components/RocketExplorer";
+import RocketLab from "@/components/RocketLab";
 import PlanetExplorer from "@/components/PlanetExplorer";
 import AIChatbot from "@/components/AIChatbot";
 import SpaceWeather from "@/components/SpaceWeather";
@@ -17,6 +17,7 @@ const Index = () => {
       <MissionTimeline />
       <LiveDashboard />
       <div className="container mx-auto px-4 py-8 space-y-8">
+        <RocketLab />
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <AIChatbot />
           <SpaceWeather />
@@ -25,7 +26,6 @@ const Index = () => {
           <AstroNews />
           <SpaceTicketBooking />
         </div>
-        <RocketExplorer />
         <PlanetExplorer />
       </div>
     </main>
