@@ -3,6 +3,8 @@ import * as THREE from "three";
 import { gsap } from "gsap";
 import { motion } from "framer-motion";
 import { useToast } from "./ui/use-toast";
+import { Rocket, Star } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -10,19 +12,7 @@ const Hero = () => {
   const particlesRef = useRef<THREE.Points | null>(null);
   const [welcomeMessage, setWelcomeMessage] = useState("Welcome, Space Explorer!");
   const { toast } = useToast();
-
-  useEffect(() => {
-    // Generate personalized welcome message
-    const timeOfDay = new Date().getHours();
-    const greeting = timeOfDay < 12 ? "Good Morning" : timeOfDay < 18 ? "Good Afternoon" : "Good Evening";
-    setWelcomeMessage(`${greeting}, Space Explorer! Ready for Launch?`);
-    
-    toast({
-      title: "Mission Control",
-      description: welcomeMessage,
-      duration: 5000,
-    });
-  }, []);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!canvasRef.current) return;
@@ -101,6 +91,21 @@ const Hero = () => {
     };
   }, []);
 
+  const handleStartJourney = () => {
+    // Show welcome toast
+    toast({
+      title: "🚀 Adventure Awaits!",
+      description: "Preparing for launch... Get ready to explore the cosmos!",
+      duration: 5000,
+    });
+
+    // Smooth scroll to planets section
+    const planetsSection = document.getElementById('planets');
+    if (planetsSection) {
+      planetsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="relative h-screen overflow-hidden cursor-cosmic">
       <style>
@@ -134,27 +139,35 @@ const Hero = () => {
           transition={{ duration: 1 }}
           className="max-w-3xl"
         >
-          <motion.h1 
-            className="text-4xl md:text-6xl font-bold text-white mb-6 animate-float dark:text-space-pink"
+          <motion.div 
+            className="flex items-center justify-center gap-3 mb-6"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             transition={{ duration: 0.5 }}
           >
-            {welcomeMessage}
-          </motion.h1>
+            <Star className="w-8 h-8 text-[#9b87f5] animate-twinkle" />
+            <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-[#9b87f5] to-[#8B5CF6] text-transparent bg-clip-text animate-float">
+              {welcomeMessage}
+            </h1>
+            <Star className="w-8 h-8 text-[#9b87f5] animate-twinkle" />
+          </motion.div>
           
-          <p className="text-space-gray text-lg md:text-xl mb-8 dark:text-gray-300">
+          <p className="text-gray-300 text-lg md:text-xl mb-8 animate-fade-in">
             Join us on a journey to discover the mysteries of the cosmos
           </p>
           
           <motion.button 
+            onClick={handleStartJourney}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-space-purple hover:bg-space-pink text-white font-bold py-3 px-8 rounded-full transition-colors duration-300 dark:bg-space-pink dark:hover:bg-space-purple relative group"
+            className="bg-[#1EAEDB] hover:bg-[#0FA0CE] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 flex items-center justify-center gap-2 group relative overflow-hidden"
           >
-            <span className="relative z-10">Start Your Journey</span>
-            <div className="absolute inset-0 rounded-full bg-white opacity-0 group-hover:opacity-20 transition-opacity duration-300"></div>
-            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-space-purple to-space-pink opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-300"></div>
+            <span className="relative z-10 flex items-center gap-2">
+              Start Your Journey
+              <Rocket className="w-5 h-5 transition-transform group-hover:translate-x-1" />
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-[#1EAEDB] to-[#0FA0CE] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#9b87f5] to-[#8B5CF6] opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-300"></div>
           </motion.button>
         </motion.div>
       </div>
