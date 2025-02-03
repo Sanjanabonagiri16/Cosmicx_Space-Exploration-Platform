@@ -1,10 +1,13 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import PlanetExplorer from "@/components/PlanetExplorer";
+import MissionTimeline from "@/components/MissionTimeline";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { Send } from "lucide-react";
+import { Send, Info, Users, Mail } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Index = () => {
   const handleSubmit = (e: React.FormEvent) => {
@@ -20,39 +23,70 @@ const Index = () => {
       {/* Planets Section */}
       <section id="planets" className="py-20 px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center text-blue-500">Explore Our Solar System</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'].map((planet) => (
-              <Card key={planet} className="bg-gray-900/50 p-6 backdrop-blur-lg border-blue-500/20 hover:scale-105 transition-transform">
-                <h3 className="text-2xl font-semibold mb-4 text-blue-400">{planet}</h3>
-                <p className="text-gray-300">
-                  Discover the mysteries of {planet} and its unique characteristics in our solar system.
-                </p>
-              </Card>
-            ))}
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-blue-500 mb-4">Explore Our Solar System</h2>
+            <p className="text-gray-300 max-w-2xl mx-auto">
+              Journey through our interactive solar system explorer and discover the wonders of space
+            </p>
+          </motion.div>
+          <PlanetExplorer />
+          <MissionTimeline />
         </div>
       </section>
 
       {/* About Section */}
       <section id="about" className="py-20 px-4 bg-gray-900/50">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center text-blue-500">About CosmicX</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-blue-500 mb-4">
+              <Info className="inline-block mr-2 h-8 w-8" />
+              About CosmicX
+            </h2>
+          </motion.div>
+          
+          <Card className="bg-gray-900/50 p-6 backdrop-blur-lg border-blue-500/20 mb-8">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-semibold mb-4 text-blue-400">
+                <Users className="inline-block mr-2 h-6 w-6" />
+                Our Mission
+              </h3>
+              <p className="text-gray-300 mb-6">
+                CosmicX is dedicated to making space exploration and education accessible to everyone. 
+                Through cutting-edge technology and interactive experiences, we bring the wonders of the 
+                universe right to your screen.
+              </p>
+            </motion.div>
+          </Card>
+
           <Card className="bg-gray-900/50 p-6 backdrop-blur-lg border-blue-500/20">
-            <h3 className="text-2xl font-semibold mb-4 text-blue-400">Our Mission</h3>
-            <p className="text-gray-300 mb-6">
-              CosmicX is dedicated to making space exploration and education accessible to everyone. 
-              Through cutting-edge technology and interactive experiences, we bring the wonders of the 
-              universe right to your screen.
-            </p>
-            <h3 className="text-2xl font-semibold mb-4 text-blue-400">Features</h3>
-            <ul className="list-disc list-inside text-gray-300 space-y-2">
-              <li>Interactive Space Learning Center</li>
-              <li>AR Space Lessons</li>
-              <li>3D Astronaut Training Simulation</li>
-              <li>Space-themed Mini-Games</li>
-              <li>Exclusive NFT Collections</li>
-            </ul>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-semibold mb-4 text-blue-400">Features</h3>
+              <ul className="list-disc list-inside text-gray-300 space-y-2">
+                <li>Interactive Space Learning Center</li>
+                <li>AR Space Lessons</li>
+                <li>3D Astronaut Training Simulation</li>
+                <li>Space-themed Mini-Games</li>
+                <li>Exclusive NFT Collections</li>
+              </ul>
+            </motion.div>
           </Card>
         </div>
       </section>
@@ -60,7 +94,21 @@ const Index = () => {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4">
         <div className="max-w-2xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center text-blue-500">Contact Us</h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl font-bold text-blue-500 mb-4">
+              <Mail className="inline-block mr-2 h-8 w-8" />
+              Contact Us
+            </h2>
+            <p className="text-gray-300">
+              Have questions? We'd love to hear from you.
+            </p>
+          </motion.div>
+
           <Card className="bg-gray-900/50 p-6 backdrop-blur-lg border-blue-500/20">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
